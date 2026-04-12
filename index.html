@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kailash Kalaiselvan — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0d;
+    --paper: #f5f2ec;
+    --cream: #ede9df;
+    --accent: #c8460a;
+    --accent-light: #f0ddd4;
+    --muted: #7a7468;
+    --border: #d4cfc5;
+    --card: #ffffff;
+    --ff-display: 'Cormorant Garamond', serif;
+    --ff-mono: 'DM Mono', monospace;
+    --ff-body: 'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--ff-body);
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 56px;
+  }
+
+  .nav-brand {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .nav-brand span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links li button {
+    background: none;
+    border: none;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0.4rem 0.85rem;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links li button:hover,
+  .nav-links li button.active {
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  /* ── PAGES ── */
+  .page { display: none; padding-top: 56px; min-height: 100vh; }
+  .page.active { display: block; }
+
+  /* ── HERO (About) ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 56px);
+  }
+
+  .hero-left {
+    padding: 5rem 3rem 5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-name {
+    font-family: var(--ff-display);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-tagline {
+    font-family: var(--ff-display);
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--ink);
+    line-height: 1.8;
+    max-width: 520px;
+  }
+
+  .hero-bio p + p { margin-top: 1rem; }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+  .btn-primary:hover { opacity: 0.85; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    padding: 0.65rem 1.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 3rem;
+    gap: 2rem;
+  }
+
+  .photo-frame {
+    width: 260px;
+    height: 320px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 4px 4px 0 var(--border);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(145deg, #e8e3d9, #d4cfc5);
+  }
+
+  .photo-placeholder svg { opacity: 0.4; }
+
+  .photo-caption {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .photo-pair {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-end;
+  }
+
+  .photo-pair .photo-frame:nth-child(2) {
+    width: 180px;
+    height: 220px;
+    margin-bottom: 2rem;
+  }
+
+  /* ── SECTION LAYOUT ── */
+  .section-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+  }
+
+  .section-num {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .section-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    color: var(--ink);
+  }
+
+  /* ── RESUME PAGE ── */
+  .resume-container {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .resume-toolbar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .resume-toolbar span {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+
+  .resume-embed {
+    width: 100%;
+    height: 780px;
+    border: none;
+    display: block;
+    background: var(--cream);
+  }
+
+  .resume-placeholder {
+    height: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--cream);
+    color: var(--muted);
+  }
+
+  .resume-placeholder p {
+    font-family: var(--ff-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+
+  .resume-note {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--accent-light);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--ink);
+  }
+
+  /* ── HIGHLIGHTS GRID ── */
+  .highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .highlight-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .highlight-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .highlight-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .highlight-img-placeholder {
+    width: 100%;
+    height: 200px;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--muted);
+  }
+
+  .highlight-img-placeholder svg { opacity: 0.35; }
+
+  .highlight-img-placeholder span {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .highlight-body { padding: 1.5rem; }
+
+  .highlight-tag {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    margin-bottom: 0.75rem;
+  }
+
+  .highlight-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .highlight-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .highlight-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+  }
+  .highlight-link:hover { border-color: var(--accent); }
+
+  /* ── SOCIAL PAGE ── */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .social-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .social-card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+
+  .social-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .social-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--cream);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  .social-card h3 {
+    font-family: var(--ff-display);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .social-card .handle {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  .social-card p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .social-card .visit-link {
+    margin-top: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--ff-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* ── PLACEHOLDER NOTICE ── */
+  .placeholder-notice {
+    background: var(--accent-light);
+    border: 1px dashed var(--accent);
+    border-radius: 4px;
+    padding: 0.65rem 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-top: 0.5rem;
+    display: inline-block;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { border-top: 1px solid var(--border); }
+    .photo-pair { flex-direction: column; align-items: center; }
+    .photo-pair .photo-frame:nth-child(2) { margin-bottom: 0; }
+    nav { padding: 0 1rem; }
+    .nav-links li button { padding: 0.4rem 0.5rem; font-size: 0.65rem; }
+    .hero-left { padding: 3rem 1.5rem; }
+    .section-wrap { padding: 3rem 1.25rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .page.active .hero-eyebrow  { animation: fadeUp 0.5s ease both; }
+  .page.active .hero-name     { animation: fadeUp 0.5s ease 0.1s both; }
+  .page.active .hero-tagline  { animation: fadeUp 0.5s ease 0.2s both; }
+  .page.active .hero-bio      { animation: fadeUp 0.5s ease 0.3s both; }
+  .page.active .hero-cta      { animation: fadeUp 0.5s ease 0.4s both; }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand" onclick="showPage('about')">K<span>.</span>K</span>
+  <ul class="nav-links">
+    <li><button onclick="showPage('about')"    id="nav-about">About</button></li>
+    <li><button onclick="showPage('resume')"   id="nav-resume">Resume</button></li>
+    <li><button onclick="showPage('interests')" id="nav-interests">Interests</button></li>
+    <li><button onclick="showPage('projects')" id="nav-projects">Projects</button></li>
+    <li><button onclick="showPage('social')"   id="nav-social">Social</button></li>
+  </ul>
+</nav>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 1 — ABOUT / WELCOME
+═══════════════════════════════════════════════ -->
+<section class="page active" id="page-about">
+  <div class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Welcome to my digital portfolio</p>
+      <h1 class="hero-name">Kailash<br><em>Kalaiselvan</em></h1>
+      <p class="hero-tagline">Computer Science Student at University of Colorado, Boulder &amp; Creative Problem-Solver</p>
+      <div class="hero-bio">
+        <p>Welcome to my digital portfolio! My name is Kailash Kalaiselvan, and I am a computer science student passionate about building innovative solutions and continuously learning new technologies. I created this portfolio as a way to showcase my work, experiences, and interests in a more dynamic and engaging format than a traditional resume.</p>
+        <p>I have a strong interest in areas such as software development, machine learning, and data visualization. Throughout my academic journey, I have worked on a variety of projects that demonstrate my ability to think critically, solve problems, and apply technical concepts in meaningful ways. I enjoy tackling challenging problems and finding creative solutions that balance efficiency and design.</p>
+        <p>This portfolio is designed to give you a clear overview of who I am and what I do. Here, you will find my resume, highlights of my academic and professional work, extracurricular activities, and links to my social media profiles. Whether you are a recruiter, professor, or fellow student, I hope this site gives you insight into my skills, experiences, and future goals. Thank you for visiting!</p>
+      </div>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showPage('projects')">View My Work</button>
+        <button class="btn-outline" onclick="showPage('resume')">See Resume</button>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-pair">
+        <div>
+          <div class="photo-frame" style="width:200px;height:260px;">
+            <div class="photo-placeholder">
+              <!-- Replace with: <img src="your-photo.jpg" alt="Kailash Kalaiselvan"> -->
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            </div>
+          </div>
+          <p class="photo-caption" style="margin-top:0.5rem;">Professional photo</p>
+        </div>
+        <div>
+          <div class="photo-frame" style="width:160px;height:200px;margin-bottom:1.5rem;">
+            <div class="photo-placeholder">
+              <!-- Replace with: <img src="your-interest-photo.jpg" alt="My interests"> -->
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            </div>
+          </div>
+          <p class="photo-caption" style="margin-top:0.5rem;">Interests photo</p>
+        </div>
+      </div>
+      <p class="placeholder-notice">📷 Replace placeholder images with your own photos</p>
+    </div>
+  </div>
+  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 2 — RESUME / CV
+═══════════════════════════════════════════════ -->
+<section class="page" id="page-resume">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Résumé &amp; CV</h2>
+    </div>
+
+    <div class="resume-container">
+      <div class="resume-toolbar">
+        <span>Kailash Kalaiselvan — Resume.pdf</span>
+        <span>Shared: Anyone with link (viewer)</span>
+      </div>
+      <!-- 
+        TO EMBED YOUR RESUME:
+        Option A — Google Drive:
+          1. Upload PDF to Google Drive
+          2. Share → "Anyone with link" as Viewer
+          3. Copy the file ID from the URL
+          4. Replace GOOGLE_DRIVE_FILE_ID below
+        
+        Option B — GitHub:
+          Upload your PDF to the repo and use a relative path like "resume.pdf"
+          Then use: <embed src="resume.pdf" class="resume-embed" type="application/pdf">
+      -->
+      <div class="resume-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <p>// embed your resume here</p>
+        <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">See code comments above for instructions</p>
+        <!-- UNCOMMENT ONE OF THESE OPTIONS:
+
+        Option A (Google Drive):
+        <iframe
+          class="resume-embed"
+          src="https://drive.google.com/file/d/GOOGLE_DRIVE_FILE_ID/preview"
+          allow="autoplay">
+        </iframe>
+
+        Option B (local PDF in repo):
+        <embed src="resume.pdf" class="resume-embed" type="application/pdf">
+        -->
+      </div>
+    </div>
+
+    <div class="resume-note">
+      <strong>Privacy note:</strong> Personal contact details (address, phone number) have been removed from the public version of this résumé. For direct contact, please reach out via LinkedIn.
+    </div>
+  </div>
+  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 3 — INTERESTS / EXTRACURRICULAR
+═══════════════════════════════════════════════ -->
+<section class="page" id="page-interests">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Interests &amp; Extracurriculars</h2>
+    </div>
+
+    <div class="highlights-grid">
+
+      <!-- CARD 1: CU Racing -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <!-- Replace with: <img src="racing.jpg" alt="CU Racing Team" class="highlight-img"> -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add a photo</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">Engineering</span>
+          <h3>CU Racing Team</h3>
+          <p>As part of the engineering team behind the university's Formula SAE program, I contributed to the design and assembly of vehicle components. My role involved hands-on work with 3D printing workflows — from modeling and slicing to post-processing — helping produce functional parts that were integrated directly into our competition car. The experience sharpened both my engineering intuition and my ability to collaborate under real performance constraints.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2: Film-making -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <!-- Replace with: <img src="filmmaking.jpg" alt="Filmmaking" class="highlight-img"> -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add a photo</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">Creative</span>
+          <h3>Film-making</h3>
+          <p>What started as a personal hobby has grown into a genuine creative pursuit. I have filmed and edited content for social platforms, including work produced under the brand of Nick Wilkins. Beyond production, I am deeply interested in the craft itself — studying cinematography, pacing, and narrative structure has influenced how I approach visual storytelling and design in all my work. Film gives me a language beyond code.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3: Placeholder for a third interest -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add a photo</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">Add Tag</span>
+          <h3>Your Third Interest</h3>
+          <p class="placeholder-notice">Replace this card with a third extracurricular or interest (50+ words). Update the tag, title, description, and photo above.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 4 — ACADEMIC / PROJECTS
+═══════════════════════════════════════════════ -->
+<section class="page" id="page-projects">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Academic &amp; Projects</h2>
+    </div>
+
+    <div class="highlights-grid">
+
+      <!-- PROJECT 1: Faav -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <!-- Replace with: <img src="faav.jpg" alt="Faav App" class="highlight-img"> -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
+          <span>Add a screenshot</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">Mobile App</span>
+          <h3>Faav</h3>
+          <p>A mobile application designed to let users curate personal lists of movies, TV shows, books, restaurants, and places they love. Beyond list-building, Faav functions as a social recommender platform — surfacing suggestions based on what your connections have recently "Faav'd." The project required designing a recommendation engine, building a clean mobile UI, and managing relational data across diverse content categories.</p>
+          <a class="highlight-link" href="#" title="Coming soon">
+            View project
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: Mancala AI -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <!-- Replace with: <img src="mancala.jpg" alt="Mancala AI" class="highlight-img"> -->
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          <span>Add a screenshot</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">AI / Course Project</span>
+          <h3>Mancala AI Agent</h3>
+          <p>Developed as a course project for CSCI 3202 (Introduction to Artificial Intelligence), this project benchmarked multiple AI decision-making strategies against random play in the classic board game Mancala. Algorithms tested included minimax with alpha-beta pruning and other heuristic-based approaches. The goal was to empirically evaluate how different levels of lookahead and strategy affect game outcomes and computational efficiency.</p>
+          <a class="highlight-link" href="#" title="Coming soon">
+            View on GitHub
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- PROJECT 3: Placeholder -->
+      <div class="highlight-card">
+        <div class="highlight-img-placeholder">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Add a screenshot</span>
+        </div>
+        <div class="highlight-body">
+          <span class="highlight-tag">Add Tag</span>
+          <h3>Your Third Project</h3>
+          <p class="placeholder-notice">Replace this card with a third academic project or work experience (50+ words). Add a photo/screenshot, description, and optional link.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PAGE 5 — SOCIAL MEDIA
+═══════════════════════════════════════════════ -->
+<section class="page" id="page-social">
+  <div class="section-wrap">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">Social Media</h2>
+    </div>
+
+    <div class="social-grid">
+
+      <!-- LinkedIn -->
+      <a class="social-card" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener">
+        <div class="social-card-header">
+          <div class="social-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a66c2" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="4"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 0 0-4 0"/></svg>
+          </div>
+          <div>
+            <h3>LinkedIn</h3>
+            <span class="handle">linkedin.com/in/kailashkalaiselvan</span>
+          </div>
+        </div>
+        <p>My LinkedIn profile serves as a professional hub, showcasing my academic background, technical skills, internship experiences, and project work. Recruiters and collaborators will find a curated summary of my computer science journey and a network of professional connections in software development and tech.</p>
+        <span class="visit-link">
+          Visit profile
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <!-- Social 2 — Placeholder -->
+      <div class="social-card" style="border-style: dashed;">
+        <div class="social-card-header">
+          <div class="social-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <div>
+            <h3>Platform 2</h3>
+            <span class="handle">Add your handle</span>
+          </div>
+        </div>
+        <p class="placeholder-notice">Add a second social media profile here (GitHub, Instagram, YouTube, etc.) and write a 25+ word description of how it supports your personal brand.</p>
+      </div>
+
+      <!-- Social 3 — Placeholder -->
+      <div class="social-card" style="border-style: dashed;">
+        <div class="social-card-header">
+          <div class="social-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          </div>
+          <div>
+            <h3>Platform 3</h3>
+            <span class="handle">Add your handle</span>
+          </div>
+        </div>
+        <p class="placeholder-notice">Add a third social media profile here and write a 25+ word description of how it supports your personal brand and what content visitors will find.</p>
+      </div>
+
+    </div>
+  </div>
+  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+</section>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+  // Set initial active nav
+  document.getElementById('nav-about').classList.add('active');
+</script>
+</body>
+</html>
