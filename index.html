@@ -8,14 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #0e0e0d;
-    --paper: #f5f2ec;
-    --cream: #ede9df;
-    --accent: #c8460a;
-    --accent-light: #f0ddd4;
-    --muted: #7a7468;
-    --border: #d4cfc5;
-    --card: #ffffff;
+    --ink: #e8eaed;
+    --paper: #0a0a0a;
+    --cream: #111418;
+    --accent: #00d2ff;
+    --accent-light: #00d2ff18;
+    --muted: #6b7280;
+    --border: #1e2530;
+    --card: #0f1318;
     --ff-display: 'Cormorant Garamond', serif;
     --ff-mono: 'DM Mono', monospace;
     --ff-body: 'DM Sans', sans-serif;
@@ -39,7 +39,7 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: var(--paper);
+    background: #070809;
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
@@ -189,10 +189,64 @@
     background: var(--cream);
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    justify-content: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .about-photo-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: calc(100vh - 56px);
+  }
+
+  .about-photo-main {
+    flex: 2;
+    overflow: hidden;
+    border-bottom: 2px solid var(--paper);
+  }
+
+  .about-photo-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .about-photo-main .photo-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4rem 3rem;
-    gap: 2rem;
+    background: linear-gradient(145deg, #111820, #0d1520);
+  }
+
+  .about-photo-strip {
+    flex: 1;
+    overflow: hidden;
+    background: var(--paper);
+  }
+
+  .about-strip-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .about-strip-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .about-strip-img img:hover {
+    transform: scale(1.05);
   }
 
   .photo-frame {
@@ -219,7 +273,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    background: linear-gradient(145deg, #e8e3d9, #d4cfc5);
+    background: linear-gradient(145deg, #111820, #0d1520);
   }
 
   .photo-placeholder svg { opacity: 0.4; }
@@ -333,6 +387,105 @@
     border-radius: 0 4px 4px 0;
     font-size: 0.85rem;
     color: var(--ink);
+  }
+
+  /* ── RESUME BODY ── */
+  .resume-body {
+    padding: 2.5rem;
+    background: var(--card);
+  }
+  .r-header {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .r-name {
+    font-family: var(--ff-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .r-contact a {
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+  }
+  .r-contact a:hover { text-decoration: underline; }
+  .r-section { margin-bottom: 2rem; }
+  .r-section-title {
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .r-item {
+    margin-bottom: 1.25rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--border);
+  }
+  .r-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-bottom: 0.2rem;
+  }
+  .r-item-title {
+    font-family: var(--ff-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+  .r-item-date {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .r-item-sub {
+    font-size: 0.82rem;
+    color: var(--accent);
+    font-family: var(--ff-mono);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.03em;
+  }
+  .r-item-body {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .r-skills-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .r-skill-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .r-skill-label {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .r-skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .r-tag {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    border: 1px solid #00d2ff22;
+    letter-spacing: 0.04em;
   }
 
   /* ── HIGHLIGHTS GRID ── */
@@ -576,7 +729,7 @@
     <div class="hero-left">
       <p class="hero-eyebrow">Welcome to my digital portfolio</p>
       <h1 class="hero-name">Kailash<br><em>Kalaiselvan</em></h1>
-      <p class="hero-tagline">Computer Science Student at University of Colorado, Boulder &amp; Creative Problem-Solver</p>
+      <p class="hero-tagline">Computer Science Student</p>
       <div class="hero-bio">
         <p>Welcome to my digital portfolio! My name is Kailash Kalaiselvan, and I am a computer science student passionate about building innovative solutions and continuously learning new technologies. I created this portfolio as a way to showcase my work, experiences, and interests in a more dynamic and engaging format than a traditional resume.</p>
         <p>I have a strong interest in areas such as software development, machine learning, and data visualization. Throughout my academic journey, I have worked on a variety of projects that demonstrate my ability to think critically, solve problems, and apply technical concepts in meaningful ways. I enjoy tackling challenging problems and finding creative solutions that balance efficiency and design.</p>
@@ -588,27 +741,18 @@
       </div>
     </div>
     <div class="hero-right">
-      <div class="photo-pair">
-        <div>
-          <div class="photo-frame" style="width:200px;height:260px;">
-            <div class="photo-placeholder">
-              <!-- Replace with: <img src="your-photo.jpg" alt="Kailash Kalaiselvan"> -->
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            </div>
-          </div>
-          <p class="photo-caption" style="margin-top:0.5rem;">Professional photo</p>
+      <div class="about-photo-layout">
+        <!-- Top 2/3: Professional photo -->
+        <div class="about-photo-main">
+          <img src="images/kailash.jpg" alt="Kailash Kalaiselvan" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
-        <div>
-          <div class="photo-frame" style="width:160px;height:200px;margin-bottom:1.5rem;">
-            <div class="photo-placeholder">
-              <!-- Replace with: <img src="your-interest-photo.jpg" alt="My interests"> -->
-              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-            </div>
+        <!-- Bottom 1/3: Flatirons Boulder -->
+        <div class="about-photo-strip">
+          <div class="about-strip-img">
+            <img src="images/flatirons.jpeg" alt="The Flatirons, Boulder Colorado">
           </div>
-          <p class="photo-caption" style="margin-top:0.5rem;">Interests photo</p>
         </div>
       </div>
-      <p class="placeholder-notice">📷 Replace placeholder images with your own photos</p>
     </div>
   </div>
   <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
@@ -627,42 +771,96 @@
     <div class="resume-container">
       <div class="resume-toolbar">
         <span>Kailash Kalaiselvan — Resume.pdf</span>
-        <span>Shared: Anyone with link (viewer)</span>
+
       </div>
-      <!-- 
-        TO EMBED YOUR RESUME:
-        Option A — Google Drive:
-          1. Upload PDF to Google Drive
-          2. Share → "Anyone with link" as Viewer
-          3. Copy the file ID from the URL
-          4. Replace GOOGLE_DRIVE_FILE_ID below
-        
-        Option B — GitHub:
-          Upload your PDF to the repo and use a relative path like "resume.pdf"
-          Then use: <embed src="resume.pdf" class="resume-embed" type="application/pdf">
-      -->
-      <div class="resume-placeholder">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        <p>// embed your resume here</p>
-        <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.7;">See code comments above for instructions</p>
-        <!-- UNCOMMENT ONE OF THESE OPTIONS:
+      <div class="resume-body">
 
-        Option A (Google Drive):
-        <iframe
-          class="resume-embed"
-          src="https://drive.google.com/file/d/GOOGLE_DRIVE_FILE_ID/preview"
-          allow="autoplay">
-        </iframe>
+        <div class="r-header">
+          <h2 class="r-name">Kailash Kalaiselvan</h2>
+          <div class="r-contact">
+            <a href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener">linkedin.com/in/kailashkalaiselvan</a>
+          </div>
+        </div>
 
-        Option B (local PDF in repo):
-        <embed src="resume.pdf" class="resume-embed" type="application/pdf">
-        -->
+        <div class="r-section">
+          <div class="r-section-title">Education</div>
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">University of Colorado Boulder</span>
+              <span class="r-item-date">Graduating May 2026</span>
+            </div>
+            <div class="r-item-sub">B.S. Computer Science</div>
+            <p class="r-item-body">Relevant coursework: Data Structures, Computer Systems, Algorithms, Programming Languages, Database Systems, Software Development, Discrete Structures, Linear Algebra, Data Science, Cyber Security, Object Oriented Programming, Human Computer Interaction</p>
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Projects &amp; Experience</div>
+
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Software Developer — Faav</span>
+            </div>
+            <p class="r-item-body">Currently developing an AI search agent for retrieving supplemental information when users search for movies, books, TV shows, restaurants, and places. Developing a discussion forum feature and optimizing the recommendation engine. Application built using Flutter Framework, Dart, and Firebase.</p>
+          </div>
+
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Bid2Buy</span>
+            </div>
+            <p class="r-item-body">Developed a mock eBay application using C++, running as a command line interface. Created modules to add new users, login as seller or buyer, register new products, bid/buy and sell products, view purchase history, and manage account information.</p>
+          </div>
+
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Global News</span>
+            </div>
+            <p class="r-item-body">Developed a web application using Node.js and PostgreSQL, hosted in an Azure Docker container, to list all recent news stories posted by users. Users can post stories in various languages and view translated content in their preferred language using OpenAI's DeepL API.</p>
+          </div>
+
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Checkers Game</span>
+            </div>
+            <p class="r-item-body">Built a multiplayer checkers game using QT Creator and C++. Utilized QT functionalities to design the game board, keyboard controls for piece movement, a game timer, move animation, score tracking across rounds, and save/load game state functionality.</p>
+          </div>
+
+          <div class="r-item">
+            <div class="r-item-header">
+              <span class="r-item-title">Maze Game</span>
+            </div>
+            <p class="r-item-body">Semester-long class project designing a maze game in Java following object-oriented design patterns including polymorphism, singleton, builder, observer, command, and strategy patterns. Extended the application iteratively with new characters and features.</p>
+          </div>
+        </div>
+
+        <div class="r-section">
+          <div class="r-section-title">Skills</div>
+          <div class="r-skills-grid">
+            <div class="r-skill-group">
+              <span class="r-skill-label">Languages &amp; Technologies</span>
+              <div class="r-skill-tags">
+                <span class="r-tag">Python</span><span class="r-tag">Java</span><span class="r-tag">Scala</span><span class="r-tag">C++</span><span class="r-tag">Dart</span><span class="r-tag">Flutter</span><span class="r-tag">HTML</span><span class="r-tag">CSS</span><span class="r-tag">JavaScript</span><span class="r-tag">Node.js</span><span class="r-tag">PostgreSQL</span><span class="r-tag">Docker</span><span class="r-tag">Azure CI</span><span class="r-tag">GitHub</span><span class="r-tag">Postman</span><span class="r-tag">QT Creator</span><span class="r-tag">IntelliJ</span><span class="r-tag">VS Code</span>
+              </div>
+            </div>
+            <div class="r-skill-group">
+              <span class="r-skill-label">Methodology</span>
+              <div class="r-skill-tags">
+                <span class="r-tag">Agile</span><span class="r-tag">Scrum</span><span class="r-tag">Kanban</span>
+              </div>
+            </div>
+            <div class="r-skill-group">
+              <span class="r-skill-label">Languages Spoken</span>
+              <div class="r-skill-tags">
+                <span class="r-tag">English</span><span class="r-tag">Tamil</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="resume-note">
-      <strong>Privacy note:</strong> Personal contact details (address, phone number) have been removed from the public version of this résumé. For direct contact, please reach out via LinkedIn.
-    </div>
+
   </div>
   <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
 </section>
@@ -672,20 +870,48 @@
 ═══════════════════════════════════════════════ -->
 <section class="page" id="page-interests">
   <div class="section-wrap">
+
+    <!-- INTERESTS -->
     <div class="section-header">
       <span class="section-num">03</span>
-      <h2 class="section-title">Interests &amp; Extracurriculars</h2>
+      <h2 class="section-title">Interests</h2>
     </div>
 
     <div class="highlights-grid">
 
-      <!-- CARD 1: CU Racing -->
+      <!-- CARD: AI/ML -->
       <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <!-- Replace with: <img src="racing.jpg" alt="CU Racing Team" class="highlight-img"> -->
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Add a photo</span>
+        <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&h=200&fit=crop" alt="AI and Machine Learning" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div class="highlight-body">
+          <span class="highlight-tag">Computer Science</span>
+          <h3>Artificial Intelligence &amp; Machine Learning</h3>
+          <p>I have a strong interest in the theory and application of artificial intelligence and machine learning. From exploring classical algorithms like minimax in my Mancala AI project to building an AI-powered search agent for Faav, I enjoy understanding how machines can learn, reason, and make decisions. I am particularly drawn to how ML techniques can be applied to real-world products to create smarter, more personalized user experiences.</p>
         </div>
+      </div>
+
+      <!-- CARD: Software Engineering -->
+      <div class="highlight-card">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=200&fit=crop" alt="Software Engineering" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
+        <div class="highlight-body">
+          <span class="highlight-tag">Computer Science</span>
+          <h3>Software Engineering</h3>
+          <p>Software engineering is at the core of everything I build. I am passionate about writing clean, maintainable code and designing systems that scale. Throughout my coursework and projects, I have worked across a wide range of languages and frameworks — from Flutter and Dart for mobile development to Node.js and PostgreSQL for backend systems. I enjoy the full development lifecycle, from architecture and design through testing and deployment using tools like Docker and Azure CI pipelines.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- EXTRACURRICULARS -->
+    <div class="section-header" style="margin-top: 4rem;">
+      <span class="section-num">—</span>
+      <h2 class="section-title">Extracurriculars</h2>
+    </div>
+
+    <div class="highlights-grid">
+
+      <!-- CARD: CU Racing -->
+      <div class="highlight-card">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=200&fit=crop" alt="Formula SAE Racing" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
         <div class="highlight-body">
           <span class="highlight-tag">Engineering</span>
           <h3>CU Racing Team</h3>
@@ -693,13 +919,9 @@
         </div>
       </div>
 
-      <!-- CARD 2: Film-making -->
+      <!-- CARD: Film-making -->
       <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <!-- Replace with: <img src="filmmaking.jpg" alt="Filmmaking" class="highlight-img"> -->
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Add a photo</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&h=200&fit=crop" alt="Filmmaking" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
         <div class="highlight-body">
           <span class="highlight-tag">Creative</span>
           <h3>Film-making</h3>
@@ -707,20 +929,8 @@
         </div>
       </div>
 
-      <!-- CARD 3: Placeholder for a third interest -->
-      <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Add a photo</span>
-        </div>
-        <div class="highlight-body">
-          <span class="highlight-tag">Add Tag</span>
-          <h3>Your Third Interest</h3>
-          <p class="placeholder-notice">Replace this card with a third extracurricular or interest (50+ words). Update the tag, title, description, and photo above.</p>
-        </div>
-      </div>
-
     </div>
+
   </div>
   <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
 </section>
@@ -739,11 +949,7 @@
 
       <!-- PROJECT 1: Faav -->
       <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <!-- Replace with: <img src="faav.jpg" alt="Faav App" class="highlight-img"> -->
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/></svg>
-          <span>Add a screenshot</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=200&fit=crop" alt="Mobile App Development" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
         <div class="highlight-body">
           <span class="highlight-tag">Mobile App</span>
           <h3>Faav</h3>
@@ -757,11 +963,7 @@
 
       <!-- PROJECT 2: Mancala AI -->
       <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <!-- Replace with: <img src="mancala.jpg" alt="Mancala AI" class="highlight-img"> -->
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-          <span>Add a screenshot</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=600&h=200&fit=crop" alt="AI Board Game" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
         <div class="highlight-body">
           <span class="highlight-tag">AI / Course Project</span>
           <h3>Mancala AI Agent</h3>
@@ -775,10 +977,7 @@
 
       <!-- PROJECT 3: Placeholder -->
       <div class="highlight-card">
-        <div class="highlight-img-placeholder">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Add a screenshot</span>
-        </div>
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=200&fit=crop" alt="Coding project" class="highlight-img" style="width:100%;height:200px;object-fit:cover;display:block;">
         <div class="highlight-body">
           <span class="highlight-tag">Add Tag</span>
           <h3>Your Third Project</h3>
