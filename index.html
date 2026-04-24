@@ -715,12 +715,61 @@
   /* ── FOOTER ── */
   footer {
     text-align: center;
-    padding: 2.5rem 2rem;
+    padding: 2rem 2rem;
     border-top: 1px solid var(--border);
     font-family: var(--ff-mono);
     font-size: 0.7rem;
     color: var(--muted);
     letter-spacing: 0.06em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .footer-linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    transition: opacity 0.2s, transform 0.5s ease;
+    flex-shrink: 0;
+  }
+  .footer-linkedin:hover {
+    opacity: 0.8;
+    transform: rotate(360deg);
+  }
+
+  .footer-x {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    transition: opacity 0.2s, transform 0.5s ease;
+    flex-shrink: 0;
+  }
+  .footer-x:hover {
+    opacity: 0.8;
+    transform: rotate(360deg);
+  }
+
+  .footer-github {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    transition: opacity 0.2s, transform 0.5s ease;
+    flex-shrink: 0;
+  }
+  .footer-github:hover {
+    opacity: 0.8;
+    transform: rotate(360deg);
   }
 
   /* ── RESPONSIVE ── */
@@ -788,18 +837,29 @@
       <div class="about-photo-layout">
         <!-- Top 2/3: Professional photo -->
         <div class="about-photo-main">
-          <img src="kailash.jpg" alt="Kailash Kalaiselvan" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+          <img src="images/kailash.jpg" alt="Kailash Kalaiselvan" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
         </div>
         <!-- Bottom 1/3: Flatirons Boulder -->
         <div class="about-photo-strip">
           <div class="about-strip-img">
-            <img src="flatirons.jpeg" alt="The Flatirons, Boulder Colorado">
+            <img src="images/flatirons.jpeg" alt="The Flatirons, Boulder Colorado">
           </div>
         </div>
       </div>
     </div>
   </div>
-  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+  <footer>
+    <span>© 2026 Kailash Kalaiselvan</span>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="footer-x" href="https://x.com/Kailash0320" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="footer-github" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+  </footer>
 </section>
 
 <!-- ══════════════════════════════════════════════
@@ -906,7 +966,18 @@
 
 
   </div>
-  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+  <footer>
+    <span>© 2026 Kailash Kalaiselvan</span>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="footer-x" href="https://x.com/Kailash0320" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="footer-github" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+  </footer>
 </section>
 
 <!-- ══════════════════════════════════════════════
@@ -976,7 +1047,18 @@
     </div>
 
   </div>
-  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+  <footer>
+    <span>© 2026 Kailash Kalaiselvan</span>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="footer-x" href="https://x.com/Kailash0320" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="footer-github" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+  </footer>
 </section>
 
 <!-- ══════════════════════════════════════════════
@@ -1031,7 +1113,18 @@
 
     </div>
   </div>
-  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+  <footer>
+    <span>© 2026 Kailash Kalaiselvan</span>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="footer-x" href="https://x.com/Kailash0320" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="footer-github" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+  </footer>
 </section>
 
 <!-- ══════════════════════════════════════════════
@@ -1064,37 +1157,56 @@
         </span>
       </a>
 
-      <!-- Social 2 — Placeholder -->
-      <div class="social-card" style="border-style: dashed;">
+      <!-- X / Twitter -->
+      <a class="social-card" href="https://x.com/Kailash0320" target="_blank" rel="noopener">
         <div class="social-card-header">
           <div class="social-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M4 4l16 16M4 20L20 4"/><path d="M20 4h-5l-11 16h5"/></svg>
           </div>
           <div>
-            <h3>Platform 2</h3>
-            <span class="handle">Add your handle</span>
+            <h3>X (Twitter)</h3>
+            <span class="handle">x.com/Kailash0320</span>
           </div>
         </div>
-        <p class="placeholder-notice">Add a second social media profile here (GitHub, Instagram, YouTube, etc.) and write a 25+ word description of how it supports your personal brand.</p>
-      </div>
+        <p>My X profile is where I share thoughts on technology, software development trends, and the computer science community. Visitors will find commentary on topics relevant to my academic and professional interests, keeping my network informed on the latest in tech and innovation.</p>
+        <span class="visit-link">
+          Visit profile
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
-      <!-- Social 3 — Placeholder -->
-      <div class="social-card" style="border-style: dashed;">
+      <!-- GitHub -->
+      <a class="social-card" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener">
         <div class="social-card-header">
           <div class="social-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7a7468" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
           </div>
           <div>
-            <h3>Platform 3</h3>
-            <span class="handle">Add your handle</span>
+            <h3>GitHub</h3>
+            <span class="handle">github.com/kailashkalaiselvan</span>
           </div>
         </div>
-        <p class="placeholder-notice">Add a third social media profile here and write a 25+ word description of how it supports your personal brand and what content visitors will find.</p>
-      </div>
+        <p>My GitHub is the most direct window into my work as a developer. It showcases my projects, code quality, and consistency as a contributor. Visitors — especially recruiters and fellow developers — will find repositories spanning mobile apps, AI projects, and course work built across multiple languages and frameworks.</p>
+        <span class="visit-link">
+          Visit profile
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
 
     </div>
   </div>
-  <footer>© 2025 Kailash Kalaiselvan &nbsp;·&nbsp; Built with GitHub Pages</footer>
+  <footer>
+    <span>© 2026 Kailash Kalaiselvan</span>
+    <a class="footer-linkedin" href="https://www.linkedin.com/in/kailashkalaiselvan" target="_blank" rel="noopener" title="LinkedIn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+    </a>
+    <a class="footer-x" href="https://x.com/Kailash0320" target="_blank" rel="noopener" title="X (Twitter)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--muted)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    </a>
+    <a class="footer-github" href="https://github.com/kailashkalaiselvan" target="_blank" rel="noopener" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--muted)"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+  </footer>
 </section>
 
 <script>
